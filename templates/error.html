@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Synopsiverse</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .error-box {
+            background-color: black;
+            color: red;
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 50px auto;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        a {
+            color: red;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-box">
+        <h1>Error</h1>
+        <p>Something went wrong:</p>
+        <p>{{ message }}</p>
+        <a href="/index">Go back</a>
+    </div>
+</body>
+</html>

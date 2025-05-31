@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synopsiverse</title>
+    <style>
+        body {
+            background-color: #15202b; /* Dark blue-green */
+            color: #e6e6e6; /* Light grey */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #64ffda; /* Bright green */
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #00adb5; /* Turquoise green */
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #007e86; /* Darker turquoise green */
+        }
+        #text_input {
+            display: none;
+            text-align: center;
+        }
+        textarea {
+            width: 90%; /* Increased width */
+            height: 100px;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #00adb5; /* Turquoise green */
+            transition: border-color 0.3s;
+            resize: none;
+            color: #e6e6e6; /* Light grey */
+            background-color: #15202b; /* Dark blue-green */
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            outline: none;
+            margin-bottom: 20px;
+        }
+        textarea:focus {
+            border-color: #007e86; /* Darker turquoise green */
+        }
+        input[type="submit"] {
+            background-color: #00adb5; /* Turquoise green */
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #007e86; /* Darker turquoise green */
+        }
+        ::placeholder {
+            color: #a8dadc; /* Light turquoise */
+            font-size: 16px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Synopsiverse</h1>
+    <div id="buttons">
+        <button id="book_button" type="button" onclick="showTextArea('book')">Books</button>
+        <button id="text_button" type="button" onclick="showTextArea('text')">Text</button>
+        <button id="youtube_button" type="button" onclick="showTextArea('youtube')">YouTube Video</button>
+    </div>
+    <div id="text_input">
+        <form action="/summarize" method="post">
+            <input type="hidden" name="content_type" id="content_type_input">
+            <textarea name="input_content" id="input_content" placeholder="Enter book title, text, or YouTube video URL"></textarea>
+            <br>
+            <input type="submit" value="Summarize">
+        </form>
+    </div>
+    <script>
+        function showTextArea(contentType) {
+            document.getElementById('text_input').style.display = 'block';
+            document.getElementById('input_content').focus();
+            document.getElementById('input_content').setAttribute('placeholder', 'Enter ' + contentType);
+            document.getElementById('input_content').setAttribute('name', contentType);
+            document.getElementById('content_type_input').value = contentType;
+        }
+    </script>
+</body>
+</html>
